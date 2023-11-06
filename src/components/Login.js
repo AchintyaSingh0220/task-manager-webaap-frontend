@@ -5,7 +5,7 @@ function Login() {
   const [password, setPassword] = useState();
 
   const handleSubmit = () => {
-    const url = "http://localhost:3000/login";
+    const url = "http://localhost:4000/";
     const obj = { userId, password };
     axios
       .post(url, obj)

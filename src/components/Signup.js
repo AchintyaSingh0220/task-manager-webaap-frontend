@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import "./stylesu.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [userId, setName] = useState();
   const [password, setPassword] = useState();
-  //   any function helps me to access class component properties -> hook
-  let handleSubmit = (event) => {
+  const navigate = useNavigate();
+  function handleSubmit(event){
+    event.preventDefault();
     let obj = { userId, password };
     const url = "http://localhost:4000/add-user";
     axios
       .post(url, obj)
       .then((res) => {
         if (res.status === 200) {
-          alert("USer added sucessfully");
+          alert("User added sucessfully");
         } else {
           alert("error");
           Promise.reject();
@@ -23,33 +24,38 @@ function SignUp() {
       .catch((err) => {
         alert(err);
       });
-    event.preventDefault();
+    
+      navigate("/task-list")
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>User Sign In Form</h1>
-      <div className="form1">
-        <label for="name" className="a3">
+    <form onSubmit={handleSubmit} className="text-center">
+      <h1 className="mb-5 bg-info text-dark">User Sign In Form</h1>
+      <div className="border border-dark bg-secondary text-light">
+        <label for="name" className="mt-5 pr-2">
           USER ID
         </label>
         <input
           type="text"
           id="userId"
           onChange={(e) => setName(e.target.value)}
+          className="m-3"
         />
         <br />
-        <label for="pwd">Password</label>
+        <label for="pwd" className="mt-3">
+          Password
+        </label>
         <input
           type="password"
           id="password"
           onChange={(e) => setPassword(e.target.value)}
+          className="m-3"
         />
         <br />
-        <input type="submit" className="a1" />
+        <input type="submit" className="my-4 bg-dark text-light" />
       </div>
-      <p className="log">
-        If account already present click to <Link to="/login">Login</Link>
-      </p>
+      <div className="mt-5">
+        Already have an account? Click <Link to="/login">here</Link> to log in
+      </div>
     </form>
   );
 }

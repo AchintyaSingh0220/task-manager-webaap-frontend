@@ -4,11 +4,10 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Nav from "./components/NavigationTab"
 import CreateTask from './components/CreateTask';
 import TaskList from './components/TaskList' ;
-import LandingPage from './components/LandingPage' ;
 import EditTask from './components/EditTask';
 import ShowNavBar from './components/ShowNavBar';
-import LogIn from './components/LogIn';
-import SignUp from './components/SignUp';
+import LogIn from './components/Login';
+import SignUp from './components/Signup';
 
 function App() {
   return (
