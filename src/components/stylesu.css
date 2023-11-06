@@ -1,0 +1,34 @@
+label {
+  padding: 20px;
+  margin-left: 400px;
+  justify-content: center;
+}
+
+input {
+  margin-left: 25px;
+  justify-content: center;
+}
+
+.a1 {
+  margin-left: 500px;
+  margin-top: 30px;
+}
+
+h1 {
+  margin-left: 450px;
+  margin-bottom: 100px;
+}
+
+.a3 {
+  padding: 20px;
+  margin-left: 420px;
+}
+
+.form1 {
+  border-radius: 1px;
+  border-color: black;
+  border-style: solid;
+  padding-bottom: 25px;
+  background: url(img1.jpeg);
+  padding-top: 45px;
+}
