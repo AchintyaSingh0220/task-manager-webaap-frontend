@@ -6,14 +6,20 @@ import CreateTask from './components/CreateTask';
 import TaskList from './components/TaskList' ;
 import LandingPage from './components/LandingPage' ;
 import EditTask from './components/EditTask';
+import ShowNavBar from './components/ShowNavBar';
+import LogIn from './components/LogIn';
+import SignUp from './components/SignUp';
 
 function App() {
   return (
     <div class="container">
       <HashRouter>
-        <Nav />
+        <ShowNavBar>
+          <Nav />
+        </ShowNavBar>
         <Routes>
-          <Route path="/" element={<LandingPage/>}/>
+          <Route path="/" element={<SignUp/>}/>
+          <Route path="/login" element={<LogIn />} />
           <Route path="/create-task" element={<CreateTask/>}/>
           <Route path="/task-list" element={<TaskList/>}/>
           <Route path="/update-task/:id" element={<EditTask/>} />
