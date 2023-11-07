@@ -20,17 +20,17 @@ function TaskForm(props)
     }
     return(
         <div style={{maxWidth: "40%", margin: "0 auto"}}>
-            <input value={props.taskNameValue} class="form-control my-3" onChange={(event) => setTaskName(event.target.value)} placeholder="Task/Event name"/>
-            <input type="date" defaultValue={props.dateValue} class="form-control my-3" onChange={(event) => setDate(event.target.value)}/>
+            <input value={taskName} class="form-control my-3" onChange={(event) => setTaskName(event.target.value)} placeholder="Task/Event name"/>
+            <input type="date" defaultValue={date} class="form-control my-3" onChange={(event) => setDate(event.target.value)}/>
             <label>Priority:</label>
-            <select onChange={(event) => setPriority(event.target.value)} value={props.priorityValue}>
+            <select onChange={(event) => setPriority(event.target.value)} value={priority}>
                 <option value={0}>High</option>
                 <option value={1}>Medium</option>
                 <option value={2}>Low</option>
             </select>
             <br/>
             <label>Set Reminder:</label>
-            <select value={props.reminderValue} onChange={(event) => setReminderBool(event.target.value)}>
+            <select value={reminderBool} onChange={(event) => setReminderBool(event.target.value)}>
                 <option value={true}>Yes</option>
                 <option value={false}>No</option>
             </select>

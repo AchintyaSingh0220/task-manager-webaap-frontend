@@ -9,7 +9,6 @@ function TaskItem(props)
         .then((res) => {
             if(res.status === 200) {
                 alert("Task removed from agenda");
-                window.location.reload();
             }
         })
         .catch(err => alert(err));

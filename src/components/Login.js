@@ -1,24 +1,30 @@
 import React, { useState } from "react";
-import axios from "axios";
+import Axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-function Login() {
+function Login(props) {
   const [userId, setName] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    const url = "http://localhost:4000/login";
-    const obj = { userId, password };
-    axios
-      .post(url, obj)
+    const url = "http://localhost:4000/users/" + userId;
+    Axios
+      .get(url)
       .then((res) => {
-        alert(res.data);
+        console.log(res);
+        if(!res.data) {
+          alert("User does not exist");
+        } else if(res.data.password !== password) {
+          alert("Incorrect Password");
+        } else {
+          props.getUserId(userId);
+          navigate("/task-list");
+        }
       })
       .catch((err) => {
         alert(err);
       });
-    navigate("/task-list");
   };
   return (
     <form onSubmit={handleSubmit} className="text-center">
@@ -45,6 +51,9 @@ function Login() {
         />
         <br />
         <input type="submit" className="mt-3 mb-4" />
+      </div>
+      <div className="mt-5">
+        New here? Click <Link to="/">here</Link> to sign up
       </div>
     </form>
   );

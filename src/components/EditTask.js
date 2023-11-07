@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import Axios from "axios";
 
 
-function EditTask()
+function EditTask(props)
 {
     const {id} = useParams();
 
@@ -28,7 +28,7 @@ function EditTask()
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = {userId: "user1", taskName: newdata[0], date: newdata[1], priority: newdata[2], setReminder: newdata[3]};
+        const data = {userId: props.userId, taskName: newdata[0], date: newdata[1], priority: newdata[2], setReminder: newdata[3]};
         Axios.put("http://localhost:4000/update-task/" + id, data)
         .then((res) => {
             if(res.status === 200) alert("Record updated successfully");
