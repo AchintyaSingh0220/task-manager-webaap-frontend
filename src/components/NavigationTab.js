@@ -6,10 +6,8 @@ function Nav()
         <nav class="navbar bg-warning px-3">
             <Link to="/" class="navbar-brand">Task Manager</Link>
             <div class="nav">
-                <Link to="/" class="nav-link">Home</Link>
-                
-                {/* we'll add create-task, update-task and delete-task buttons in this single page */}
                 <Link to="/task-list" class="nav-link">Tasks</Link>
+                <Link to="/" class="nav-link">Sign Out</Link>
             </div>
         </nav>
     );

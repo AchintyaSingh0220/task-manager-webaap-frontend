@@ -2,7 +2,7 @@ import Axios from "axios";
 import {useState} from "react";
 import TaskForm from "./TaskForm";
 
-function CreateTask()
+function CreateTask(props)
 {
     const [arr, setArr] = useState([]);
     const getState = (childData) =>
@@ -12,7 +12,7 @@ function CreateTask()
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = {userId: "user1", taskName: arr[0], date: new Date(arr[1]), priority: arr[2], setReminder: arr[3]};
+        const data = {userId: props.userId, taskName: arr[0], date: new Date(arr[1]), priority: arr[2], setReminder: arr[3]};
         console.log(data);
         Axios.post("http://localhost:4000/add-task", data)
         .then((res) => {

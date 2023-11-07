@@ -8,8 +8,13 @@ import EditTask from './components/EditTask';
 import ShowNavBar from './components/ShowNavBar';
 import LogIn from './components/Login';
 import SignUp from './components/Signup';
+import { useState } from 'react';
 
 function App() {
+  const [userId, setUserId] = useState("");
+  const getUserId = (newUserId) => {
+    setUserId(newUserId);
+  };
   return (
     <div class="container">
       <HashRouter>
@@ -17,11 +22,11 @@ function App() {
           <Nav />
         </ShowNavBar>
         <Routes>
-          <Route path="/" element={<SignUp/>}/>
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/create-task" element={<CreateTask/>}/>
-          <Route path="/task-list" element={<TaskList/>}/>
-          <Route path="/update-task/:id" element={<EditTask/>} />
+          <Route path="/" element={<SignUp getUserId={getUserId}/>}/>
+          <Route path="/login" element={<LogIn getUserId={getUserId}/>} />
+          <Route path="/create-task" element={<CreateTask userId={userId}/>}/>
+          <Route path="/task-list" element={<TaskList userId={userId}/>}/>
+          <Route path="/update-task/:id" element={<EditTask userId={userId}/>} />
         </Routes>
       </HashRouter>
     </div>

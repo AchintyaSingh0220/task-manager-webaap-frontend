@@ -1,31 +1,24 @@
 import React, { useState } from "react";
-import axios from "axios";
+import Axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function SignUp() {
+function SignUp(props) {
   const [userId, setName] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
   function handleSubmit(event){
     event.preventDefault();
-    let obj = { userId, password };
-    const url = "http://localhost:4000/add-user";
-    axios
-      .post(url, obj)
+    let obj = { userId: userId, password: password };
+    Axios.post("http://localhost:4000/add-user", obj)
       .then((res) => {
-        if (res.status === 200) {
+        if(res.status === 200) {
           alert("User added sucessfully");
-        } else {
-          alert("error");
-          Promise.reject();
+          props.getUserId(userId);
+          navigate("/task-list");
         }
       })
-      .catch((err) => {
-        alert(err);
-      });
-    
-      navigate("/task-list")
+      .catch((err) => alert(err));
   };
   return (
     <form onSubmit={handleSubmit} className="text-center">
