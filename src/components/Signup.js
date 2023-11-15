@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import "./Signup.css";
 function SignUp(props) {
   const [userId, setName] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
-  function handleSubmit(event){
+  const [isHovered, setIsHovered] = useState(false);
+  const [isInputBoxHovered, setIsInputBoxHovered] = useState(false);
+  function handleSubmit(event) {
     event.preventDefault();
     let obj = { userId: userId, password: password };
     Axios.post("http://localhost:4000/add-user", obj)
       .then((res) => {
-        if(res.status === 200) {
+        if (res.status === 200) {
           alert("User added sucessfully");
           props.getUserId(userId);
           navigate("/task-list");
@@ -21,36 +23,46 @@ function SignUp(props) {
       .catch((err) => alert(err));
   };
   return (
-    <form onSubmit={handleSubmit} className="text-center">
-      <h1 className="mb-5 bg-info text-dark">User Sign In Form</h1>
-      <div className="border border-dark bg-secondary text-light">
-        <label for="name" className="mt-5 pr-2">
-          USER ID
-        </label>
-        <input
-          type="text"
-          id="userId"
-          onChange={(e) => setName(e.target.value)}
-          className="m-3"
-        />
-        <br />
-        <label for="pwd" className="mt-3">
-          Password
-        </label>
-        <input
-          type="password"
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-          className="m-3"
-        />
-        <br />
-        <input type="submit" className="my-4 bg-dark text-light" />
+    <div onMouseOver={() => setIsHovered(true)} onMouseOut={() => setIsHovered(false)} class="outer-container">
+
+
+      <div onMouseOver={() => setIsInputBoxHovered(true)} onMouseOut={() => setIsInputBoxHovered(false)} class="input-section">
+
+        <form onSubmit={handleSubmit} >
+          <h1>TASK MANAGER</h1>
+          
+          <br></br>
+          <br></br>
+          <table>
+            <tr>
+              <td><label for="name"  >
+                USER ID
+              </label></td>
+              <td><input type="text" id="userId" onChange={(e) => setName(e.target.value)} class = "input-feilds"/></td>
+            </tr>
+            <tr>
+              <td><label for="pwd" >
+                Password
+              </label>
+              </td>
+              <td><input type="password" id="password" onChange={(e) => setPassword(e.target.value)} class = "input-feilds"/></td>
+            </tr>
+            <br></br>
+            <br></br>
+            <input type="submit" value="CREATE  USER" id = "submit-button" />
+          </table>
+        </form>
+
       </div>
-      <div className="mt-5">
+
+
+      <div class = "login-section" >
         Already have an account? Click <Link to="/login">here</Link> to log in
       </div>
-    </form>
+
+    </div>
   );
 }
 
 export default SignUp;
+
