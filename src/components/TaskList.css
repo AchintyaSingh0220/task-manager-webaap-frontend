@@ -1,49 +1,47 @@
-.task-list-container 
-{
-    background-color:white;
-    color:black;
-    padding:10px;
-    height : 850px;
-    overflow-y : scroll;
-    background-image: linear-gradient(105deg, #3586b2 50%, #5eaed8 50%, #a2d9e9);;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position:relative;
+.task-list-container {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  height: 850px;
+  overflow-y: scroll;
+  background-image: linear-gradient(180deg, #3586b2, #5eaed8, #a2d9e9);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
-#create-task-container 
-{
-    display : flex;
-    justify-content : center;
-    margin-bottom : 20px;
-    position:fixed;
-    bottom  : 0px;
-    left :320px;
-    bottom : 11px;
-    z-index : 2;
+/* #create-task-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: fixed;
+  bottom: 0px;
+  left: 320px;
+  bottom: 11px;
+  z-index: 2;
+} */
+
+#create-task-button {
+  padding: 5px 10px;
+
+  margin-inline-start: 45%;
+
+  border: solid 1px black;
+  background-color: rgba(2, 200, 0, 0.7);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
-
-#create-task-button 
-{
-    padding:25px 30px;
-    border:solid 1px black;
-    background-color:rgba(2, 200, 0, 0.7);
-    color:white;
-    font-weight : bold;
-    font-size : 20px;
-    border-radius : 10px;
-}
-
-#create-task-button:hover
-{
-    padding:25px 30px;
-    border:solid 1px black;
-    background-color:rgba(4, 136, 3, 1);
-    color:white;
-    font-weight : bold;
-    font-size : 20px;
-    border-radius : 10px;
-    transition : 0.6s  ease-in;
+#create-task-button:hover {
+  padding: 25px 30px;
+  border: solid 1px black;
+  background-color: rgba(4, 136, 3, 1);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 10px;
+  transition: 0.6s ease-in;
 }

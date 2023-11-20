@@ -35,6 +35,7 @@ function SignUp(props) {
       >
         <form onSubmit={handleSubmit}>
           <h1 style={{ fontFamily: "fanatsy" }}>TASK MANAGER</h1>
+          {/* <h2 style={{ fontFamily: "fantasy" }}>SIGN UP FORM</h2> */}
 
           <br></br>
           <br></br>
