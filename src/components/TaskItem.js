@@ -87,7 +87,7 @@ function TaskItem(props) {
       </div>
 
       <div id="ti3">
-        <button id="ti7">
+        <button id="ti7" className="p-1">
           <Link id="ti4" to={"/update-task/" + props.obj._id}>
             Edit Task
           </Link>
