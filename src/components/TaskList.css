@@ -36,7 +36,10 @@
 }
 
 #create-task-button:hover {
-  padding: 25px 30px;
+  padding: 5px 10px;
+
+  margin-inline-start: 45%;
+
   border: solid 1px black;
   background-color: rgba(4, 136, 3, 1);
   color: white;
