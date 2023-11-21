@@ -3,6 +3,7 @@ import TaskItem from "./TaskItem";
 import Axios from "axios";
 import {Link} from "react-router-dom"
 import "./TaskList.css";
+import Reminder from "./Reminder";
 function TaskList(props)
 {
     const [arr, setArr] = useState([]);
@@ -24,16 +25,20 @@ function TaskList(props)
         );
     };
     return(
-        <div class = "task-list-container">
-            <div id = "create-task-container">
-                <Link to="/create-task"> 
-                    <button id = "create-task-button">NEW TASK</button>
-                </Link>
-            </div>
-            <div>
-                {ListTasks()}
+        <div>
+            <Reminder userId={props.userId}/>
+            <div class = "task-list-container">
+                <div id = "create-task-container">
+                    <Link to="/create-task"> 
+                        <button id = "create-task-button">NEW TASK</button>
+                    </Link>
+                </div>
+                <div>
+                    {ListTasks()}
+                </div>
             </div>
         </div>
+
 
     );
 }

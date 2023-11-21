@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import "./TaskItem.css";
@@ -21,8 +20,6 @@ function TaskItem(props) {
     Axios.put("http://localhost:4000/update-task/" + props.obj._id, props.obj)
       .then((res) => {
         if (res.status === 200) {
-          setIsDull(!isDull); 
-   main
           alert("Task status updated");
         } else {
           Promise.reject();
