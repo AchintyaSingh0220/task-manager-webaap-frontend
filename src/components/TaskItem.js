@@ -4,7 +4,6 @@ import Axios from "axios";
 import "./TaskItem.css";
 import MarkButton from "./MarkButton";
 function TaskItem(props) {
-  const [isDull, setIsDull] = useState(false);
   const date = new Date(props.obj.date);
   const handleClick = () => {
     Axios.delete("http://localhost:4000/delete-task/" + props.obj._id)
@@ -23,6 +22,7 @@ function TaskItem(props) {
       .then((res) => {
         if (res.status === 200) {
           setIsDull(!isDull); 
+   main
           alert("Task status updated");
         } else {
           Promise.reject();
@@ -32,7 +32,7 @@ function TaskItem(props) {
   };
   const values = ["High", "Medium", "Low"];
   return (
-    <div id="ti1" className={isDull ? "dull" : ""}>
+    <div id="ti1" className={props.obj.marked === true ? "dull" : ""}>
       <div id="ti2">
         <div id="ti8">
           <h4 className="text-warning p-4">

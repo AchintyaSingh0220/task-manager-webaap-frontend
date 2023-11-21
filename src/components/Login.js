@@ -30,7 +30,9 @@ function Login(props) {
     <div class="login-container">
       <div class="login-input-section">
         <form onSubmit={handleSubmit} id="form1">
-          <h1> LOGIN FORM</h1>
+          <h1 style={{ fontFamily: "serif" }}>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LOGIN FORM
+          </h1>
           <br></br>
           <table>
             <tr>
@@ -70,8 +72,13 @@ function Login(props) {
             </tr>
           </table>
           <br></br>
-          <br></br>
-          <input type="submit" id="login-button" value="LOGIN" />
+          {/* <br></br> */}
+          <input
+            type="submit"
+            id="login-button"
+            value="LOGIN"
+            style={{ marginBottom: "10px" }}
+          />
         </form>
       </div>
 

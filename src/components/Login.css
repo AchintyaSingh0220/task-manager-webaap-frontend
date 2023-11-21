@@ -1,6 +1,6 @@
 body,
 html {
-  background: linear-gradient(to right, white, #adadff);
+  background-color: skyblue;
   color: #ffffff;
   margin: 0;
   padding: 0;
@@ -48,8 +48,8 @@ html {
   border-style: solid;
   border-color: #f39c12;
   border-width: 3px;
-  padding: 40px;
-  margin: 60px;
+  padding: 10px;
+  margin: 10px;
   border-radius: 20px;
   background-color: rgba(19, 114, 165, 0.7);
   display: flex;
@@ -60,8 +60,8 @@ html {
   border-style: solid;
   border-color: #1282f3;
   border-width: 3px;
-  padding: 40px;
-  margin: 60px;
+  padding: 10px;
+  margin: 10px;
   border-radius: 20px;
   background-color: rgba(0, 85, 131, 0.8);
   display: flex;
