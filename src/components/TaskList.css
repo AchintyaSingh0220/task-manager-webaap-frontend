@@ -50,6 +50,7 @@
 }
 
 .reminder_notification {
+  padding: 5px;
   color: #F3F3F3;
   background-color: #1b5dcd;
   margin: 10px 0;
