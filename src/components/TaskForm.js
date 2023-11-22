@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./taskform.css";
+import "../styles/taskform.css";
 
 function TaskForm(props) {
   const [taskName, setTaskName] = useState(props.taskNameValue);

@@ -14,7 +14,7 @@ function CreateTask(props)
         event.preventDefault();
         const data = {userId: props.userId, taskName: arr[0], date: new Date(arr[1]), priority: arr[2], setReminder: arr[3], marked: false};
         console.log(data);
-        Axios.post("http://localhost:4000/add-task", data)
+        Axios.post("https://taskmanager-webaap-backend.onrender.com/add-task", data)
         .then((res) => {
             if(res.status === 200) alert("Record created successfully");
             else Promise.reject();

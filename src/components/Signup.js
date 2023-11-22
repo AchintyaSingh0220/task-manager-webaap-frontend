@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import "./Signup.css";
+import "../styles/Signup.css";
 function SignUp(props) {
   const [userId, setName] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
-  const [isHovered, setIsHovered] = useState(false);
-  const [isInputBoxHovered, setIsInputBoxHovered] = useState(false);
   function handleSubmit(event) {
     event.preventDefault();
     let obj = { userId: userId, password: password };
-    Axios.post("http://localhost:4000/add-user", obj)
+    Axios.post("https://taskmanager-webaap-backend.onrender.com/add-user", obj)
       .then((res) => {
         if (res.status === 200) {
           alert("User added sucessfully");
@@ -24,13 +22,9 @@ function SignUp(props) {
   }
   return (
     <div
-      onMouseOver={() => setIsHovered(true)}
-      onMouseOut={() => setIsHovered(false)}
       class="outer-container"
     >
       <div
-        onMouseOver={() => setIsInputBoxHovered(true)}
-        onMouseOut={() => setIsInputBoxHovered(false)}
         class="input-section"
       >
         <form onSubmit={handleSubmit}>

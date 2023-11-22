@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import Axios from "axios";
-import "./TaskItem.css";
+import "../styles/TaskItem.css";
 import MarkButton from "./MarkButton";
 function TaskItem(props) {
   const date = new Date(props.obj.date);
   const handleClick = () => {
-    Axios.delete("http://localhost:4000/delete-task/" + props.obj._id)
+    Axios.delete("https://taskmanager-webaap-backend.onrender.com/delete-task/" + props.obj._id)
       .then((res) => {
         if (res.status === 200) {
           alert("Task removed from agenda");
@@ -17,7 +17,7 @@ function TaskItem(props) {
     if (props.obj.marked === false) props.obj.marked = true;
     else props.obj.marked = false;
 
-    Axios.put("http://localhost:4000/update-task/" + props.obj._id, props.obj)
+    Axios.put("https://taskmanager-webaap-backend.onrender.com/update-task/" + props.obj._id, props.obj)
       .then((res) => {
         if (res.status === 200) {
           alert("Task status updated");

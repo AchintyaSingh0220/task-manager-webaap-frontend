@@ -16,7 +16,7 @@ function EditTask(props)
     }
 
     useEffect(() => {
-        Axios.get("http://localhost:4000/update-task/" + id)
+        Axios.get("https://taskmanager-webaap-backend.onrender.com/update-task/" + id)
         .then((res) => {
             if(res.status === 200) {
                 const {taskName, date, priority, setReminder} = res.data;
@@ -29,7 +29,7 @@ function EditTask(props)
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = {userId: props.userId, taskName: newdata[0], date: newdata[1], priority: newdata[2], setReminder: newdata[3]};
-        Axios.put("http://localhost:4000/update-task/" + id, data)
+        Axios.put("https://taskmanager-webaap-backend.onrender.com/update-task/" + id, data)
         .then((res) => {
             if(res.status === 200) alert("Record updated successfully");
             else Promise.reject();

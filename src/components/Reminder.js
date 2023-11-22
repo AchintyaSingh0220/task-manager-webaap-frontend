@@ -5,7 +5,7 @@ function Reminder(props)
 {
     const [count, setCount] = useState(0);
     useEffect(() => {
-        Axios.get("http://localhost:4000/due-tasks/" + props.userId)
+        Axios.get("https://taskmanager-webaap-backend.onrender.com/due-tasks/" + props.userId)
         .then((res) => {
             if(res.status === 200) setCount(res.data.length);
             else Promise.reject();
